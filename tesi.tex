@@ -1,0 +1,248 @@
+%================Tesi di fine IV Anno TCMIA=============
+%===================Leonardo Bentini====================
+%Questo è codice sorgente da compilare solo con pdflatex.
+%=======Editor consigliati: gedit, kile, vim.===========
+%=======================================================
+
+%+++++++++++++++Definizioni ed inclusioni+++++++++++++++
+\documentclass[a4paper,14pt,twoside]{extarticle} %formato, tipo di documento, twoside alterna il margine in base alla parità delle pg.
+\usepackage[utf8]{inputenc} %codifica
+\usepackage[italian]{babel} %carica sillabazione e vocabolario italiani
+\usepackage{extsizes}%permette dimensioni del testo maggiori, fino a 20pt
+\usepackage{graphicx} %gestisce l'importazione di img
+\usepackage[section,subsection,subsubsection]{inc/extraplaceins} %impedisce lo spostamento dell'img a fondo sezione
+\usepackage{indentfirst}%rientro a prima riga
+%\usepackage{degrade}%ridimensionatore di img
+\usepackage[
+		bookmarks=true,
+		linktocpage=true, 
+		colorlinks=false,
+		pdfstartpage=1,
+		bookmarksopen=1,
+		pdfauthor={Leonardo Bentini},
+		pdftitle={Tesina L. Bentini 4TCMIA},
+		pdfkeywords={tesi, iv, 4, macchina, coster}
+	]{hyperref}%hyperlink e informazioni sul file .pdf
+
+\usepackage{fancyhdr}%headings
+\frenchspacing %spaziatura ristretta
+\makeindex %genera indice
+\title{\sf \textbf{TESINA 5A ITI\\}}
+\author{Bentini Leonardo \\ \\ \\ \\ V ASR\\ \\ \\ \\ \\ \\ \\ \\}
+\date{Anno Scolastico 2014-2015}
+
+
+\begin{document}
+%\tableofcontents %genera indice
+
+\begin{titlepage}%genera titolo
+\setcounter{page}{0} %numera zero la pagina
+\clearpage\maketitle
+\thispagestyle{empty}
+\newpage %pagina nuova
+
+%pagina semivuota post-copertina
+\newpage
+\tiny.
+\normalsize
+\thispagestyle{empty}
+\setcounter{page}{0}
+%fine
+
+\newpage
+\clearpage\maketitle
+\thispagestyle{empty}
+\setcounter{page}{0}
+\tableofcontents %genera indice
+\end{titlepage}
+
+%++++Gestione del nome sezione a cima pagina++++++
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+%\renewcommand{\sectionmark}[1]{\markright{#1}{} } %visualizza anche la subsezione
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % visualizza solo la sezione
+\fancyhf{}
+\fancyhead[RE,LO]{\textbf \thepage}%numero di pagina, posizione: Right Even Left Odd
+\fancyhead[RO]{\textit{ \small{\nouppercase{\leftmark}}} }%nome sezione.
+\fancyhead[LE]{\textit{ \small{ \nouppercase{\leftmark}}} }
+\fancypagestyle{plain}{
+\fancyhf{} % pulisce foglio
+\renewcommand{\headrulewidth}{0pt} % rimuove le linee
+\renewcommand{\footrulewidth}{0pt}
+}
+%\DegSetup{res=400,dir=/imgr,sdir=/redimg}
+\newpage
+
+%+++++++++++++Inizio corpo documento+++++++++++++
+\section{Introduzione}
+
+\newpage
+
+\subsection{}
+
+\subsubsection{}
+%Immagine++++++++++++++++++++++++++++++++++++++++
+\begin{figure}[ht!]
+\sf
+\centering
+\includegraphics[scale=0.135,keepaspectratio=true]{./img/ass.jpg}
+\caption{\small \sf \small ambiente tipicamente industriale del reparto di assemblaggio C2.}
+\end{figure} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
+\subsection{Permanenza su una macchina}
+D
+\subsection{Affiancamento in magazzino e turni}
+In questo periodo, secondo disposizioni del tutor aziendale abbiamo svolto un affiancamento della durata di una settimana al personale del magazzino, facendoci un' idea di come vengono gestiti amministrativamente gli ordini\footnote{Lo stabilimento dispone di un ufficio dedito alla gestione della logistica e dei documenti di trasporto.}, le operazioni di carico/scarico sui camion e le operazioni del \emph{magazzino automatico} che conserva i pallet assegnandoli un codice a barre e una piazzola di carico; in attesa che il materiale venga richiamato all'esterno.
+
+Ho poi svolto una settimana con orario di turno, dalle 6:00 alle 14:00, in affiancamento ad un singolo manutentore meccanico del reparto di assemblaggio, che ho seguito quindi durante tutta la sua giornata lavorativa.
+
+Ci sono anche stati concessi alcuni giorni durante la terza settimana per completare il materiale necessario all'esame.
+\newpage
+
+
+\section{Analisi del rendimento}\label{sec:analisi}%Aggiunta del capitolo analisi della macchina, con tabelle ecc.
+Il tutor ci ha affidato questo lavoro per tentare di \emph{migliorare la produttività} generale di un' assemblatrice, facendoci indagare direttamente sulle cause dello scarso rendimento, rilevato dalle statistiche di produzione.
+\subsection{Fasi di lavoro}
+Una volta ricevute le istruzioni, ci siamo organizzati per portare a termine il compito assegnatoci attenendoci ad alcune fasi:
+\begin{itemize}
+
+\item{\textbf{Studiare il funzionamento}, lo scopo e il metodo di produzione della macchina: 
+nei primi giorni abbiamo seguito il percorso dei pezzi in lavorazione, verificando cosa avviene nelle varie zone del sistema.}
+\item{\textbf{Localizzare i problemi} meccanici e controllare se essi sono causa di lavorazioni non portate a buon fine, creanti scarti.}
+\item{\textbf{Dialogare con il personale} che si occupa del sistema, sia operatori che manutentori; cercando di scoprire i problemi ricorrenti o non risolvibili direttamente dall'azienda.}
+\item{\textbf{Raccogliere i motivi di fermata} ad intervalli regolari, con l'ausilio di un computer portatile posizionato vicino alla macchina ed ovviamente di un blocco note.}
+\item{\textbf{Trascrivere le statistiche} di produzione ed attività registrate automaticamente dal sistema informatico a bordo della macchina, come ad esempio il numero di pezzi orari teorici, i tempi di funzionamento e quelli di inattività.}
+\item{\textbf{Elaborare i dati} raccolti e produrre un resoconto. (vedi sez.\ref{sec:dati}).}
+%\item{\textbf{Impostare il resoconto} graficamente e strutturalmente.}
+\end{itemize}
+
+Una volta prodotto il resoconto lo abbiamo presentato al nostro tutor ed al direttore di stabilimento.
+\newpage
+\subsection{Problemi meccanici rilevati}\label{sec:prob}
+Abbiamo riscontrato alcuni problemi di varia natura che abbassano la produttività dell' assemblatrice, aumentando il numero di scarti o il numero delle fermate.
+
+Per esempio i più gravi sono stati:
+\begin{itemize}
+\item{Caduta del componente \emph{cerino} durate il moto della tavola D, causato da un problema di posizionamento dello stesso.}
+\item{Frequente blocco delle \emph{molle} nel sistema di alimentazione, causato da deformità dei pezzi.}
+\item{Il componente \emph{corpo} rimane spesso bloccato sulla pinza di prelievo, anche questo è dovuto alla deformità del pezzo.}
+\item{Le \emph{guarnizioni interne} vengono posizionate a coppie sullo stesso pezzo in lavorazione, fermando il ciclo.}
+\end{itemize}
+
+%Immagine++++++++++++++++++++++++++++++++++++++++
+\begin{figure}[ht!]
+\centering \sf \tiny
+\includegraphics[scale=0.26,keepaspectratio=true]{./img/cerini.jpg}
+\caption{\small \sf tav. D, si possono vedere i cerini caduti.}
+\end{figure}
+%++++++++++++++++++++++++++++++++++++++++++++++++
+%Queste informazioni sono state scritte ed allegate al resoconto delle analisi.
+\newpage
+\subsection{Resoconto analitico}\label{sec:dati}
+Con i dati ottenuti sono stati sviluppati vari grafici e tabelle in formato elettronico.
+
+Sono state impostate in totale tre tabelle, una per ogni settimana, contenenti il numero delle fermate della macchina, le principali cause, il numero di pezzi e il rapporto fra i tempi teorici di attività e quelli di lavoro utile, espresso in percentuale.
+
+Per giustificare eventuali tempi di inattività elevati, è stato allegato il registro giornaliero, da noi creato, degli interventi di manutenzione, durante i quali la macchina deve rimanere ferma.
+
+Abbiamo anche preparato un istogramma per ogni settimana che illustra il numero e i motivi delle fermate ricorrenti, in ordine decrescente.
+%Immagine++++++++++++++++++++++++++++++++++++++++
+\begin{figure}[ht!]
+\centering \sf \tiny
+\includegraphics[scale=0.75,keepaspectratio=true]{./img/graf.jpg}
+\caption{\small \sf istogramma delle fermate.}
+\end{figure}
+%++++++++++++++++++++++++++++++++++++++++++++++++
+
+In conclusione, posso dire che questo progetto è stato utile sia all'azienda, che ne ha tratto beneficio facendo risolvere al produttore dell'automazione i problemi segnalati, sia a noi allievi, in quanto potrebbe ricapitarci di dover diagnosticare ed esaminare un malfunzionamento, prima di un eventuale intervento.
+
+\newpage
+\section{Focus su un' automazione}\label{sec:focus}
+Il sistema preso in esame è una macchina assemblatrice automatizzata di ultima generazione (fine 2012) con funzione di  controllo conformità pezzi integrata che ha lo scopo di produrre \emph{pompe nebulizzatrici} per l'erogazione di liquidi,  nel particolare prodotti di profumeria.
+
+A pieno regime è in grado di assemblare 14400 pezzi/ora.\\
+Costituita per la maggior parte di acciaio inossidabile, questa macchina è adatta anche ad essere utilizzata in ambienti con particolari standard di igiene.
+
+È stata costruita dalla ditta italiana CB Automation, divisione della Bettinelli f.lli S.p.A.
+%Immagine++++++++++++++++++++++++++++++++++++++++
+\begin{figure}[ht!]
+\tiny \sf
+\centering
+\includegraphics[scale=0.16,keepaspectratio=true]{./img/lato.jpg}
+\caption{\small \sf la macchina vista di lato.}
+\end{figure} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
+\subsection{Meccanica}
+
+L'assemblatrice opera caricando i componenti necessari e ponendoli su dei porta-pezzi mobilitati da delle "catene" ai quali sono saldati, queste sono chiamate \emph{transfer} e trasportano i pezzi da un punto in cui viene eseguita una lavorazione ad un altro.
+
+I singoli punti sono chiamati \emph{stazioni}.
+Ogni stazione ha un' unica funzione, come ad esempio il posizionamento e il fissaggio di un componente oppure un controllo di regolarità del pezzo in lavorazione.
+
+Un \emph{gruppo} invece è un organo meccanico unico e mosso da una sola forza motrice, ma che può racchiudere varie stazioni.
+
+%L'argomento verrà esplicato nella sezione \ref{sec:fasi}.
+
+Una caratteristica importante della macchina che la differenzia da molte altre delle precedenti generazioni è l'uso di molti motori brushless comandati singolarmente dal PLC per mobilitare gli organi della macchina, in alternativa all'uso di un singolo albero a camme.
+
+Per prelevare, trasferire ed operare sui pezzi, l'automazione utilizza un particolare tipo di organi di prelievo a vuoto, migliori sotto molti punti di vista rispetto alle pinze meccaniche.\footnote{Nella sezione \ref{sec:bracci} viene approfondito il funzionamento di questi apparati.}
+Altra importante caratteristica è la presenza di vari punti di scarico scarti, atti ad eliminare questi prima delle altre lavorazioni, altrimenti inutili.
+
+\subsection{Impianto di comando}
+\
+L'intero sistema è controllato da due \emph{Programmable Logical Controller} o \emph{PLC}: dei computer con la funzione di attivare delle connessioni elettriche in base alle informazioni che ricevono, comandando le elettrovalvole ed i motori elettrici riferendosi di solito allo stato meccanico della macchina rilevato da un \emph{encoder}: dispositivo che in base alla rotazione che compie il rotore al quale è collegato (ad esempio un albero a camme) pone in uscita un segnale elettronico analogico o digitale, generalmente interpretabile in gradi.
+
+Ogni volta che il motore al quale è connesso l'encoder compie una rotazione completa, inizia un nuovo \emph{ciclo macchina}.
+
+Nel caso in questione però l'encoder non è fisico, ma rimpiazzato da un temporizzatore software che svolge la stessa funzione ma con dei vantaggi: è possibile modificare molti parametri meccanici semplicemente dal monitor di controllo. (vedi sez. \ref{sec:soft}).
+
+Tutti i dispositivi e le stazioni della macchina per funzionare correttamente devono effettuare l'operazione per la quale sono predisposti e ritornare in posizione di riposo entro la fine del ciclo macchina.
+
+Se ciò non dovesse avvenire per qualche problema meccanico o di altra natura, esistono dei sensori atti a rilevare l'anomalia ed arrestare il ciclo.
+Sarà poi necessaria una ricalibrazione automatica.
+\subsubsection{Gestione e interfaccia}
+L'assemblatrice dispone di una pulsantiera per il comando manuale e di otto punti di comando dai quali è possibile arrestare o riavviare il ciclo, oltre ad evocare un arresto di emergenza.
+
+Sono presenti anche due monitor regolari e due touchscreen mediante i quali è possibile interagire con il software.
+%Immagine++++++++++++++++++++++++++++++++++++++++
+\begin{figure}[ht!]
+\centering \sf
+\includegraphics[scale=0.14,keepaspectratio=true]{./img/monitor.jpg}
+\caption{\small \sf il pannello touchscreen, visibili le statistiche.}
+\end{figure} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
+
+\newpage
+\subsubsection{Software}\label{sec:soft}
+
+\subsection{Ringraziamenti}
+\thanks{
+Ringrazio i docenti del CFP e tutto il personale aziendale Coster, in particolare i manutentori al quale sono stato affiancato ed il tutor del periodo formativo in azienda.
+}
+\subsection{Bibliografia, sitografia e note}
+
+Alcune informazioni riportate su questo fascicolo sono tratte da altre opere cartacee:
+\begin{itemize}
+\item{\textit{Manuale d'uso e manutenzione, CB Automation, 2012.}}
+\item{\textit{Coster catalogue, Coster tecnologie speciali S.p.A., rev.25 2012.}}
+\end{itemize}
+
+Ho scelto di redarre questo documento utilizzando \emph{software libero}, principalmente col linguaggio di programmazione markup \large \LaTeX,
+ \normalsize che assicura una buona resa tipografica.\\
+Informazioni a riguardo disponibili su:
+
+\begin{itemize}
+\item{\url{http://it.wikipedia.org/wiki/Latex}}
+%\item{\url{http://latex-project.org}}
+\end{itemize}
+
+\newpage
+\thispagestyle{empty}
+\footnotesize
+	*******************\\
+	Bentini Leonardo\\
+	Tesina di fine quarto anno.\\
+	Versione definitiva,\\
+	ultima revisione: \today
+
+\end{document}

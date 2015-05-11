@@ -1,0 +1,48 @@
+%% degrade.sty
+%% © 2002 by Peter Münster
+%%
+%% A package, that degrades JPEG images on the fly to decrease the size of the
+%% resulting PostScript or PDF file. You'll need the convert utility from the
+%% ImageMagick bundle and the jpeg2ps program from CTAN if you don't use VTeX.
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License (http://www.latex-project.org/lppl.txt).
+%%
+%% Commands:
+%%
+%% \DegSetup{key=value,...} Known keys are:
+%% * res to set the resolution in dpi (default=100, example: res=300)
+%% * dir to set the directory where to put the resized jpeg files
+%%   (default=degrade)
+%% * sdir to set the directory where images should be found in general
+%%   (default: current directory)
+%%
+%% \degimage[w|h]{width or height}{image} Use this instead of \includegraphics
+%% to include your image.
+%% example 1: \degimage{\linewidth}{flower},
+%% example 2: \degimage[h]{0.5\textheight}{power}
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{degrade}
+\RequirePackage{ifvtex,graphicx}
+
+%% default values:
+\newcommand*\Deg@Res{100}%     220 is good for seminar with 1024x768 display
+\newcommand*\Deg@Dir{degrade}% directory for degraded images
+\newcommand*\Deg@SDir{.}%      source directory
+
+\define@key{degrade}{res}{\renewcommand*\Deg@Res{#1}}
+\define@key{degrade}{dir}{\renewcommand*\Deg@Dir{#1}}
+\define@key{degrade}{sdir}{\renewcommand*\Deg@SDir{#1}\graphicspath{{#1/}}}
+
+\newcommand*\DegSetup[1]{\setkeys{degrade}{#1}}
+\newlength\@TEMPW
+
+\ifvtex\else\def\command{\immediate\write18}\typeout{You have to run LaTeX
+  with the --shell-escape option.}\fi
+
+\newcommand\degimage[3][w]{\setlength\@TEMPW{#2}\command{degrade.sh #1 #3
+	\Deg@Res\space\strip@pt\@TEMPW\space\Deg@SDir\space\Deg@Dir\space\ifvtex
+	JPG\else EPS\fi}\if#1w\def\Deg@WH{width}\else\def\Deg@WH{height}\fi
+  \IfFileExists{\Deg@Dir/#3.jpg}{\def\Deg@File{\Deg@Dir/#3}}{%
+	\def\Deg@File{#3}}\includegraphics*[\Deg@WH=#2]{\Deg@File}}

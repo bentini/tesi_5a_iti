@@ -1,0 +1,34 @@
+Description:
+------------
+This package degrades JPEG images on the fly to a given resolution to decrease
+the size of the resulting PostScript or PDF file.
+
+Requirements:
+-------------
+You'll need the convert utility from the ImageMagick bundle and the jpeg2ps
+program from CTAN if you don't use VTeX. Because of the script "degrade.sh"
+this package works only on Unix-like systems.
+
+Installation:
+-------------
+Put the script "degrade.sh" in your $PATH and make it executable.
+Put "degrade.sty" in a place where TeX can find it.
+
+Commands:
+---------
+\DegSetup{key=value,...}
+Known keys are:
+* res to set the resolution in dpi (default=100, example: res=300)
+* dir to set the directory where to put the resized jpeg files
+  (default=degrade)
+* sdir to set the directory where images should be found in general
+  (default: current directory)
+
+\degimage[w|h]{width or height}{image}
+Use this instead of \includegraphics to include your image.
+example 1: \degimage{\linewidth}{flower},
+example 2: \degimage[h]{0.5\textheight}{power}
+
+Author:
+-------
+Peter Münster, email: pmrb at free.fr
